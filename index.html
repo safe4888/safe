@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <style>
+    body {
+      background-color: #ffcbe5;
+      font-family: 'Kanit', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #880e4f;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-top: 50px;
+      font-size: 2.5em;
+    }
+    img {
+      width: 250px;
+      height: auto;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      background-color: #d81b60;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 40px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover {
+      background-color: #ad1457;
+    }
+    .flower {
+      position: fixed;
+      top: -50px;
+      font-size: 30px;
+      pointer-events: none;
+      animation: fall 3s linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💌</h1>
+  <img src="my-girlfriend.jpg" alt="รูปเธอ">
+  <div>
+    <button class="btn" onclick="surprise()">กดเลย!</button>
+  </div>
+
+  <audio id="bgMusic" src="song.mp3" loop></audio>
+
+  <script>
+    function surprise() {
+      const music = document.getElementById("bgMusic");
+      music.currentTime = 1:05; // ⏱ เริ่มเล่นจากวินาทีที่ 10
+      music.play();           // ▶ เล่นเพลง
+      alert("อ่านทำไมหมูอ้วน");
+      for (let i = 0; i < 30; i++) {
+        createFlower();
+      }
+    }
+
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * window.innerWidth + 'px';
+      flower.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      flower.innerHTML = '🌸❤️';
+      document.body.appendChild(flower);
+      setTimeout(() => {
+        flower.remove();
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>
